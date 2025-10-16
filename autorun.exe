@@ -1,0 +1,21 @@
+#!/usr/bin/bash
+
+sudo apt install apache2 -y
+
+echo "instalation complete"
+
+sudo mv /etc/apache2/sites-available/default /root/
+sudo mv /etc/apache2/sites-enabled/default /root/
+
+sudo cp ./config.new /etc/apache2/sites-available/project
+sudo ln -s /etc/apache2/sites-available/project /etc/apache2/sites-enabled/project
+
+sudo systemctl restart apache2
+
+echo
+echo
+
+ss -tnlp
+
+echo
+echo "script end of work"
