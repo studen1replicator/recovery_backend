@@ -1,5 +1,4 @@
 
-Listen 8081
 <VirtualHost *:8081>
         #ServerName www.example.com
 
@@ -13,7 +12,6 @@ Listen 8081
 
 ####################################################
 
-Listen 8082
 <VirtualHost *:8082>
         #ServerName www.example.com
 
