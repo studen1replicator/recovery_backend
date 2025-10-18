@@ -5,23 +5,26 @@ sudo apt install apache2 -y
 
 echo "instalation complete"
 
-#sudo mv /etc/apache2/sites-available/000-default.conf /root/
-#sudo rm -f /etc/apache2/sites-enabled/000-default.conf /root/
+#CONFIG
+sudo mv /etc/apache2/sites-available/000-default.conf /root/
+sudo cp ./config.new /etc/apache2/sites-available/0-project.conf
 
-#sudo cp ./config.new /etc/apache2/sites-available/000-default.conf
-#sudo ln -s /etc/apache2/sites-available/project /etc/apache2/sites-enabled/project
+#LINK
+sudo rm -f /etc/apache2/sites-enabled/000-default.conf
+sudo ln -s /etc/apache2/sites-available/0-project.conf /etc/apache2/sites-enabled/0-project.conf
 
-
-
-sudo cp ./config.new /etc/apache2/sites-available/000-dafault.conf
+#PORTS
+sudo mv /etc/apache2/ports.conf /root/
 sudo cp ./ports.new /etc/apache2/ports.conf
 
 sudo systemctl restart apache2
 
 echo
 echo
+sleep 1
 
 ss -tnlp
 
+sleep 1
 echo
 echo "script end of work"
